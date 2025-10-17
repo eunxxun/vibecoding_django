@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}메모짱 - 간편한 메모 앱{% endblock %}
+
+{% block content %}
+<div class="row text-center">
+    <div class="col-md-12">
+        <h1 class="display-4 mb-4">메모짱</h1>
+        <p class="lead mb-4">당신의 생각을 간편하게 기록하세요.</p>
+
+        <div class="mb-4">
+            <a href="{% url 'users:login' %}" class="btn btn-primary btn-lg mr-2">로그인</a>
+            <a href="{% url 'users:register' %}" class="btn btn-outline-primary btn-lg">회원가입</a>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">📝 쉬운 작성</h5>
+                        <p class="card-text">간단한 인터페이스로 메모를 빠르게 작성할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">🔐 안전한 보관</h5>
+                        <p class="card-text">당신의 메모는 안전하게 저장되고 보호됩니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">📱 언제 어디서</h5>
+                        <p class="card-text">언제든지 당신의 메모에 접근하고 수정할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

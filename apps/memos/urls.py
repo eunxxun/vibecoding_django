@@ -2,6 +2,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "memos"
+
 urlpatterns = [
     url(r"^$", views.memo_list_view, name="memo_list"),
     url(r"^(?P<pk>\d+)/$", views.memo_detail_view, name="memo_detail"),

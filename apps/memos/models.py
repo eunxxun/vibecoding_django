@@ -20,8 +20,11 @@ class Memo(models.Model):
         verbose_name_plural = "메모"
         ordering = ["-created_at"]
 
+    def __unicode__(self):
+        return self.title
+
     def __str__(self):
-        return u"{}".format(self.title)
+        return self.title.encode('utf-8') if isinstance(self.title, unicode) else self.title
 
     def get_absolute_url(self):
         return reverse("memos:memo_detail", kwargs={"pk": self.pk})

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}프로필 - 메모짱{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="mb-4">프로필</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">사용자 정보</h5>
+                <p class="card-text">
+                    <strong>사용자명:</strong> {{ user.username }}<br>
+                    <strong>이메일:</strong> {{ user.email }}<br>
+                    <strong>이름:</strong> {{ user.first_name }} {{ user.last_name }}<br>
+                    <strong>가입일:</strong> {{ user.date_joined|date:"Y-m-d H:i" }}
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{% url 'memos:memo_list' %}" class="btn btn-primary">메모 목록으로</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

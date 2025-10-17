@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}메모 목록 - 메모짱{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>메모 목록</h1>
+    </div>
+    <div class="col-md-4 text-right">
+        <a href="{% url 'memos:memo_create' %}" class="btn btn-primary">새 메모 작성</a>
+    </div>
+</div>
+
+{% if memos %}
+<div class="list-group">
+    {% for memo in memos %}
+    <a href="{% url 'memos:memo_detail' memo.pk %}" class="list-group-item list-group-item-action">
+        <h5 class="mb-1">{{ memo.title }}</h5>
+        <p class="mb-1" style="color: #666;">{{ memo.content|truncatewords:20 }}</p>
+        <small class="text-muted">{{ memo.created_at|date:"Y-m-d H:i" }}</small>
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info" role="alert">
+    아직 작성한 메모가 없습니다. <a href="{% url 'memos:memo_create' %}">지금 만들어보세요!</a>
+</div>
+{% endif %}
+{% endblock %}

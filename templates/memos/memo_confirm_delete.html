@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}메모 삭제 - 메모짱{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">정말 삭제하시겠습니까?</h4>
+            <p class="mb-0">
+                다음 메모가 영구적으로 삭제됩니다:
+            </p>
+            <hr>
+            <h5>{{ memo.title }}</h5>
+            <p style="white-space: pre-wrap; color: #666;">{{ memo.content|truncatewords:30 }}</p>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">삭제하기</button>
+            <a href="{% url 'memos:memo_detail' memo.pk %}" class="btn btn-secondary">취소</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

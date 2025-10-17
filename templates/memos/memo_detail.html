@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ memo.title }} - 메모짱{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="mb-4">
+            <h1 class="mb-2">{{ memo.title }}</h1>
+            <small class="text-muted">
+                작성: {{ memo.created_at|date:"Y-m-d H:i" }}
+                {% if memo.created_at != memo.updated_at %}
+                | 수정: {{ memo.updated_at|date:"Y-m-d H:i" }}
+                {% endif %}
+            </small>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <p class="card-text" style="white-space: pre-wrap;">{{ memo.content }}</p>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <a href="{% url 'memos:memo_update' memo.pk %}" class="btn btn-warning">수정</a>
+            <a href="{% url 'memos:memo_delete' memo.pk %}" class="btn btn-danger">삭제</a>
+            <a href="{% url 'memos:memo_list' %}" class="btn btn-secondary">목록으로</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

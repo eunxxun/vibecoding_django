@@ -78,6 +78,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "memojjang.wsgi.application"
 
+# Default auto field for Django 3.2+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

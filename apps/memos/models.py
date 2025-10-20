@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 
 class Memo(models.Model):
@@ -20,11 +20,8 @@ class Memo(models.Model):
         verbose_name_plural = "메모"
         ordering = ["-created_at"]
 
-    def __unicode__(self):
-        return self.title
-
     def __str__(self):
-        return self.title.encode('utf-8') if isinstance(self.title, unicode) else self.title
+        return self.title
 
     def get_absolute_url(self):
         return reverse("memos:memo_detail", kwargs={"pk": self.pk})

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
 app_name = "users"
 
 urlpatterns = [
-    url(r"^register/$", views.register_view, name="register"),
-    url(r"^login/$", views.login_view, name="login"),
-    url(r"^logout/$", views.logout_view, name="logout"),
-    url(r"^profile/$", views.profile_view, name="profile"),
+    path("register/", views.register_view, name="register"),
+    path("login/", views.login_view, name="login"),
+    path("logout/", views.logout_view, name="logout"),
+    path("profile/", views.profile_view, name="profile"),
 ]
